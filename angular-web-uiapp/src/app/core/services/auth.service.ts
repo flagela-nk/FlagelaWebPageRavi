@@ -8,7 +8,6 @@ import { UserLoginRequest, UserLoginResponse } from 'src/app/model/user';
 
 
 import { User } from '../model/user.model';
-import { routes } from 'src/app/backend/auth-routes';
 import { Router } from 'express';
 
 @Injectable({
