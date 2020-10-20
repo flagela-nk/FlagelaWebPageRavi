@@ -1,0 +1,186 @@
+.main {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    color: #5b73e8 !important;
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    min-width: 250px;
+
+    box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
+}
+
+.main-border {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    box-sizing: border-box;
+    width: 250px;
+    z-index: 1005;
+    background: #fff;
+    bottom: 0;
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
+    color: #5b73e8 !important;
+}
+
+.main-block {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: left;
+    -webkit-box-direction: normal;
+    direction: inherit;
+    box-sizing: border-box !important;
+    position: relative;
+    display: block;
+    width: auto;
+    visibility: visible;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0 !important;
+    height: 100%;
+
+    ul {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+        -webkit-box-direction: normal;
+        direction: inherit;
+        visibility: visible;
+        color: #fff !important;
+        box-sizing: border-box;
+        padding-left: 0;
+        list-style: none;
+        margin: 0;
+
+        li {
+            font-family: "IBM Plex Sans", sans-serif;
+            line-height: 1.5;
+            -webkit-box-direction: normal;
+            direction: inherit;
+            visibility: visible;
+            list-style: none;
+            box-sizing: border-box;
+            padding: 12px 20px !important;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+            cursor: default;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            width: 100%;
+            color: #6d7794;
+        }
+
+        li.active{
+direction: inherit;
+visibility: visible;
+list-style: none;
+text-decoration: none!important;
+outline: 0!important;
+cursor: pointer;
+user-select: none;
+background-color: #f3f8fb;
+display: block;
+border-radius: 3px;
+        }
+
+        li.button-group {
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.5;
+            -webkit-box-direction: normal;
+            direction: inherit;
+            visibility: visible;
+            list-style: none;
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+        }
+
+        li.button {
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.5;
+            direction: inherit;
+            visibility: visible;
+            list-style: none;
+            box-sizing: border-box;
+            margin-left: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: block;
+            padding: 0;
+        }
+    }
+}
+
+.main-vertical-scroll {
+    -webkit-tap-highlight-color: transparent;
+    --blue: #5b73e8;
+    --indigo: #564ab1;
+    --red: #f46a6a;
+    --orange: #f1734f;
+    --yellow: #f1b44c;
+    --green: #34c38f;
+    --teal: #050505;
+    --cyan: #50a5f1;
+    --white: #fff;
+    --gray: #74788d;
+    --gray-dark: #343a40;
+    --primary: #5b73e8;
+    --secondary: #74788d;
+    --success: #34c38f;
+    --info: #50a5f1;
+    --warning: #f1b44c;
+    --danger: #f46a6a;
+    --light: #f5f6f8;
+    --dark: #343a40;
+    --pink: #e83e8c;
+    --purple: #6f42c1;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "IBM Plex Sans", sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: left;
+    -webkit-box-direction: normal;
+    box-sizing: border-box;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    top: 0;
+    width: 11px;
+    visibility: visible;
+}

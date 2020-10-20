@@ -1,0 +1,17 @@
+
+
+
+<div style="display: flex; flex-direction: row;">
+    <div style="width: 250px;">
+        <ul class="list-group">
+            <ng-container *ngFor="let collectionName of collectionNames">
+                <li class="list-group-item" [routerLink]="'/rest-api/'+collectionName">{{collectionName}}</li>
+            </ng-container>
+        </ul>
+    </div>
+    <div style="margin-left: 10px; width: 100%;">
+       
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

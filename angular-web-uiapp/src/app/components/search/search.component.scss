@@ -1,0 +1,135 @@
+.gridContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.gridContainerItem {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 10px;
+
+    width: 250px;
+    max-width: 400px;
+    min-width: 200px;
+    height: 300px;
+
+    box-sizing: border-box;
+    font-family: inherit;
+    display: block;
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+
+    overflow-y: hidden;
+
+    img{
+        max-width: 360px;
+        max-height: 100px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+
+    p{
+        margin-bottom: 3px;
+    }
+}
+
+.search-box-div {
+    font-size: 14px;
+    line-height: 1.2;
+    font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: #282c3f;
+    box-sizing: inherit;
+    display: flex;
+    position: relative;
+    margin-top: 35px;
+}
+
+.search-box-inner-div {
+    font-size: 14px;
+    line-height: 1.2;
+    font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: #282c3f;
+    box-sizing: inherit;
+    position: relative;
+    flex: 1;
+}
+
+.search-box-inside-div {
+    font-size: 14px;
+    line-height: 1.2;
+    font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: #282c3f;
+    box-sizing: inherit;
+    display: block;
+    position: relative;
+    transform: translateZ(0);
+    padding: 0 5px;
+    border: 1px solid #bebfc5;
+    box-shadow: none;
+}
+
+.search-box-input {
+    color: inherit;
+    font: inherit;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    box-shadow: none;
+    box-sizing: border-box;
+    border-radius: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 58px !important;
+    line-height: 28px !important;
+    padding-top: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 160px !important;
+    caret-color: #fc8019;
+    font-size: 18px !important;
+    font-weight: 500;
+}
+
+
+.search-box-button {
+    font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
+    box-sizing: inherit;
+    position: absolute;
+    z-index: 1;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    color: #fff;
+    background-color: brown;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    right: 0;
+    height: 60px;
+    line-height: 60px;
+    width: 140px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.53px;
+    padding: 0;
+}

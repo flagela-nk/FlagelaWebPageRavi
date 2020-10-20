@@ -1,0 +1,14 @@
+<div style="flex-direction: row;" >
+
+    <ng-container *ngFor="let menuItem of menuItems">
+        <button 
+        class="btn btn-light ml-2" 
+        [disabled]="menuItem.disabled"
+        *ngIf="(!menuItem.devOnly || (menuItem.devOnly && !isProd)) && !menuItem.hidden"
+        (click)="menuItemClicked(menuItem.name)" >
+            {{ menuItem.label || ( menuItem.name| titlecase)  }}
+        </button>
+    </ng-container>
+
+
+</div>

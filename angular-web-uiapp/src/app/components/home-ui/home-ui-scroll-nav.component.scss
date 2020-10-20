@@ -1,0 +1,20 @@
+
+@media(min-width:400px) {
+    .top-menu {
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+    @media(min-width:380px) {
+        .top-menu {
+            -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+            -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+            transition: background .5s ease-in-out,padding .5s ease-in-out;
+        }
+    }
+    .nav-scroll {
+        padding: 5px 0 !important;
+    }
+  
+}
+

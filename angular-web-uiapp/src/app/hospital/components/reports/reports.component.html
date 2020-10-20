@@ -1,0 +1,101 @@
+<ng-container>
+    <div class="container">
+        <br/>
+        
+        <div class="inside-container" >
+            <div class="title">
+                <h1>Purchases</h1>
+            </div>
+            <br/><form class="flagela">
+                <fieldset>
+                    <label>Select Kitchen</label>
+                    <select (change)="getPurchaseSummary($event.target.value)">
+                        <option *ngFor="let kitchen of kitchenList;  index as i" [value]="kitchen.id" [selected]="i==0">
+                            {{ kitchen.name }}
+                        </option>
+                    </select>
+                </fieldset>
+            </form>
+            <br/>
+            <div>
+                <!--
+
+                    <h4 class="display-4" style="font-size: x-large; font-weight: normal;">Total meals ordered: <span style="text-align: right; min-width: 100px;">44 </span></h4>
+                    <h4 class="display-4" style="font-size: x-large; font-weight: normal;">Total sales amount: <span style="text-align: right; min-width: 100px;">INR 32,000 </span></h4>
+                -->
+                
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        <h4 class="display-4" style="font-size: x-large; font-weight: normal;">Total meals ordered:</h4>
+                    </dt>
+                    <dd class="col-sm-9">
+                        <h4 class="display-4" style="font-size: x-large; font-weight: normal;">
+                            <span *ngIf="purchaseSummary">{{ purchaseSummary.totalMealsOrdered}}</span>
+                        </h4>
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        <h4 class="display-4" style="font-size: x-large; font-weight: normal;">Total sales amount:</h4>
+                    </dt>
+                    <dd class="col-sm-9">
+                        <h4 class="display-4" style="font-size: x-large; font-weight: normal;">
+                            <span *ngIf="purchaseSummary">
+                                INR {{ purchaseSummary.totalPurchasesAmount}}
+                            </span>
+                        </h4>
+                    </dd>
+                                    
+                  </dl>
+                
+                <br/>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item" [ngClass]="{ active: purchasePeriod == 'TODAY' }" (click)="refreshPurchases('TODAY')"><span class="page-link">Today</span></li>
+                      <li class="page-item" [ngClass]="{ active: purchasePeriod == 'THIS_WEEK' }" (click)="refreshPurchases('THIS_WEEK')"><span class="page-link">This week</span></li>
+                      <li class="page-item" [ngClass]="{ active: purchasePeriod == 'THIS_MONTH' }" (click)="refreshPurchases('THIS_MONTH')"><span class="page-link">This month</span></li>
+                      <li class="page-item" [ngClass]="{ active: purchasePeriod == 'THIS_YEAR' }" (click)="refreshPurchases('THIS_YEAR')"><span class="page-link">This year</span></li>
+                      
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+        <div class="inside-container" >
+            <div class="title">
+                <h1>Inventory Report</h1>
+            </div>
+            <br/>
+            <form class="flagela">
+                <fieldset>
+                    <label>Select Kitchen</label>
+                    <select (change)="getInventoryList($event.target.value)">
+                        <option *ngFor="let kitchen of kitchenList;  index as i" [value]="kitchen.id" [selected]="i==0">
+                            {{ kitchen.name }}
+                        </option>
+                    </select>
+                </fieldset>
+            </form>
+            <br/>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Measurement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container  *ngFor="let inventory of inventoryList">
+                        <tr>
+                            <td>{{ inventory.item }}</td>
+                            <td>{{ inventory.quantity }}</td>
+                            <td>{{ inventory.unit }}</td>
+                        </tr>                        
+                    </ng-container>
+                </tbody>
+            </table>
+
+            
+        </div>
+        
+    </div>
+</ng-container>

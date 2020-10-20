@@ -1,0 +1,81 @@
+<ng-container>
+
+    <div class="container">
+        <!-- Vendor Dashboard-->
+        <br />
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Checklist</h1>
+                <h2>(followed at all kitchens)</h2>
+            </div>
+
+            <ul class="list-unstyled">
+                <li *ngFor="let item of checklistItems">
+                    {{ item.item }}
+                    <ng-container *ngIf="item.subItems">
+                        <ul>
+                            <li *ngFor="let subItem of item.subItems">{{ subItem.name }} </li>
+                        </ul>
+                    </ng-container>
+                </li>
+               
+            </ul>
+        </div>
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Today's Menu</h1>
+                <h2>(from all vendors)</h2>
+            </div>
+            <ul class="list-unstyled">
+                <li *ngFor="let item of todaysMenu">{{ item.name }}</li>
+            </ul>
+        </div>
+        <div class="inside-container" >
+            <div class="title">
+                <h1>Ratings</h1>
+            </div>
+            <br/>
+            <table class="table table-striped">
+                <tbody>
+                    <ng-container  *ngFor="let item of overallRating">
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td><app-rating [value]="item.rating"></app-rating></td>
+                        </tr>
+                    </ng-container>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Staff Health Information</h1>
+                <h2>(from all kitchens)</h2>
+            </div>
+
+            <ul>
+                <li *ngFor="let item of staffHealthIssues">
+                    {{ item.first_name }} {{ item.last_name }} 
+                    <ul>
+                        <li>{{ item.reason }}</li>
+                    </ul>
+                    
+                </li>
+            </ul>
+            
+        </div>
+        <div class="inside-container" >
+            <div class="title">
+                <h1>Inventory Report</h1>
+            </div>
+            <br/>
+            
+        </div>
+
+
+    </div>
+
+</ng-container>

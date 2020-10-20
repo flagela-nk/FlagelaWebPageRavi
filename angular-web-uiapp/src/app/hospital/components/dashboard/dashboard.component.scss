@@ -1,0 +1,30 @@
+.card{
+    width: 18rem;
+    min-height: 16rem;
+    margin-right: 0.5rem;
+
+line-height: 1.5;
+text-align: left;
+box-sizing: border-box;
+position: relative;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+flex-direction: column;
+min-width: 0;
+background-color: #fff;
+background-clip: border-box;
+border: 0 solid #f6f6f6;
+border-radius: .25rem;
+margin-bottom: 20px;
+box-shadow: 0 2px 4px rgba(15,34,58,.12);
+}
+
+.row{
+text-align: left;
+box-sizing: border-box;
+display: flex;
+flex-wrap: wrap;
+margin-right: -10px;
+margin-left: -10px;
+}

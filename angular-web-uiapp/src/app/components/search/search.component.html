@@ -1,0 +1,209 @@
+<div class="container mt-2">
+
+
+    <div class="search-box-div">
+
+        <div class="search-box-inner-div">
+            <div class="search-box-inside-div">
+                <input type="text" class="search-box-input" value="" name="location" id="location" autocomplete="off"
+                    tabindex="1" placeholder="Enter your location" maxlength="30" [(ngModel)]="locationValue">
+                <!-- <div class="_2EeI1"></div>
+                <label class="_1Cvlf" for="location"></label>
+            </div>
+            <div *ngIf="false" class="_1fiQt">
+                <span class="icon-location-crosshair _25lQg"></span>
+                <span class="LukWG">Locate Me</span>-->
+
+            </div>
+        </div>
+        <a class="search-box-button" (click)="search()"><span>Search</span></a>
+    </div>
+
+    <div style="margin-top: 10px;">
+        <label *ngIf="entityTypeName == 'HOSPITAL'">
+            Search for Curated Vendors
+        </label>
+        <label *ngIf="entityTypeName == 'VENDOR'">
+            Search for Hospitals
+        </label>
+        <label *ngIf="entityTypeName == 'PATIENT'">
+            Search for Food Vendors
+        </label>
+        <a style="margin-left: 20px;" href="#">Change</a>
+    </div>
+
+    <div  class="accordion" id="accordionAdditionalyFilters" >
+        <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAdditionalyFilters" aria-expanded="true" aria-controls="collapseAdditionalyFilters">
+                    Additionaly filters
+                </button>
+              </h5>
+            </div>
+        
+            <div id="collapseAdditionalyFilters" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionAdditionalyFilters">
+              <div class="card-body">
+                <div class="flagela-form">
+                    <fieldset  *ngIf="entityTypeName == 'HOSPITAL'">
+                        <label>Name</label>
+                        <input type="text" placeholder="Resturant Name" [(ngModel)]="entityName" />
+                    </fieldset>
+
+                    <fieldset  *ngIf="entityTypeName == 'HOSPITAL'">
+                        <label class="required">Capacity</label>
+                        <input type="number"  placeholder="50 (default)" [(ngModel)]="capacity"/>
+                    </fieldset>
+
+                    <fieldset *ngIf="entityTypeName == 'VENDOR'">
+                        <label class="required">Min. Bed Capacity</label>
+                        <input type="number" placeholder="50 (default)" />
+                    </fieldset>
+
+                    <fieldset *ngIf="entityTypeName == 'HOSPITAL' || entityTypeName == 'PATIENT'">
+                        <label>Preferable Cuisine</label>
+                        <select [(ngModel)]="cuisine" >
+                            <option selected value="any">Any</option>
+                            <option value="north_indian">North Indian</option>
+                            <option value="south_indian">South Indian</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="italian">Italian</option>
+                            <option value="thai">Thai</option>
+                        </select>
+                    </fieldset>
+
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="gridContainer">
+        <div class="gridContainerItem" *ngFor="let result of searchResults"
+            (click)="searchResultItemClicked(result.id)" data-toggle="modal" data-target="#exampleModalCenter">
+            <img [src]="result.logo_url || noImageUrl" />
+            <h4>{{result.name}}</h4>
+            <!--Vendor Name-->
+            <p>Address  {{ result.city }} {{ result.state }} {{ result.zipcode }}</p>
+            <p>Experience {{ result.experience }} years</p>
+            <p *ngIf="false">Previous Client {{ result.previousClient }}</p>
+            <p>Total meals served {{ result.noOfMealsServed }}</p>
+            <div>
+                <ng-container>
+                    <span class="fa fa-star" [style.color]="result.rating >= 1 ? 'orange': ''"></span>
+                    <span class="fa fa-star" [style.color]="result.rating >= 2 ? 'orange': ''"></span>
+                    <span class="fa fa-star" [style.color]="result.rating >= 3 ? 'orange': ''"></span>
+                    <span class="fa fa-star" [style.color]="result.rating >= 4 ? 'orange': ''"></span>
+                    <span class="fa fa-star" [style.color]="result.rating >= 5 ? 'orange': ''"></span>
+                </ng-container>
+                <!-- <a href="">Read Testimonials</a> -->
+                <!-- <a href="" class="ml-2">Show more</a> -->
+            </div>
+            <!-- <a href="">Check Licenses</a> -->
+        </div>
+    </div>
+
+    <!--Modal Contents-->
+    <ng-template #searchModalContent>
+        
+        <div class="modal-body" *ngIf="selectedResult">
+            <p>{{ selectedResult.address != 'null' ? selectedResult.address + ",":"" }} {{ selectedResult.city }} {{ selectedResult.state }} {{ selectedResult.zipcode }}</p>
+            <p><b>Experience</b> {{ selectedResult.experience }} years</p>
+            <p><b>Previous Client</b> {{ selectedResult.previousClient }}</p>
+            <p><b>Number of meals served</b> {{ selectedResult.noOfMealsServed }}</p>
+            
+            <div style="min-height: 100px;">
+                <h4>Images</h4>
+                <ng-template #noImagesAvailableMessage>
+                    <p><i>No images available for this resturant</i></p>
+                </ng-template>
+                <div *ngIf="selectedResult.images && selectedResult.images.length > 0; else noImagesAvailableMessage" style="display: flex; flex-direction: row; overflow: scroll;">
+                
+                    <ng-container *ngFor="let image of selectedResult.images">
+                        <img [src]="image" width="320" height="240" style="margin: 5px;" />
+                    </ng-container>
+                </div>
+            </div>
+            <div style="min-height: 100px;">
+                <h4>Licenses</h4>
+                <ng-template #noLicensesAvailableMessage>
+                    <p><i>No Licenses available for this resturant</i></p>
+                </ng-template>
+                <div *ngIf="selectedResult.licenses && selectedResult.licenses.length > 0; else noLicensesAvailableMessage" >                
+                    <ng-container *ngFor="let item of selectedResult.licenses">
+                        <p>{{ item.license_number }}</p>
+                        <p>{{ item.license_exp }}</p>
+                    </ng-container>
+                </div>
+            </div>
+            <div style="min-height: 100px;">
+                <h4>Endorsements</h4>
+                <ng-template #noEndorsementsAvailableMessage>
+                    <p><i>No Endorsements available for this resturant</i></p>
+                </ng-template>
+                <div *ngIf="selectedResult.endorsements && selectedResult.endorsements.length > 0; else noEndorsementsAvailableMessage" >                
+                    <ng-container *ngFor="let item of selectedResult.endorsements">
+                        <p>{{ item.endorsement_name }}</p>
+                    </ng-container>
+                </div>
+            </div>
+            <div style="min-height: 100px;">
+                <h4>Testimonials</h4>                
+                <div>
+                    <ng-container>
+                        <span class="fa fa-star" [style.color]="selectedResult.rating >= 1 ? 'orange': ''"></span>
+                        <span class="fa fa-star" [style.color]="selectedResult.rating >= 2 ? 'orange': ''"></span>
+                        <span class="fa fa-star" [style.color]="selectedResult.rating >= 3 ? 'orange': ''"></span>
+                        <span class="fa fa-star" [style.color]="selectedResult.rating >= 4 ? 'orange': ''"></span>
+                        <span class="fa fa-star" [style.color]="selectedResult.rating >= 5 ? 'orange': ''"></span>
+                    </ng-container>
+                </div>
+                <br/>
+                <ng-template #noTestimonialsAvailableMessage>
+                    <p><i>No Testimonials available for this resturant</i></p>
+                </ng-template>
+                <div *ngIf="selectedResult.testimonials && selectedResult.testimonials.length > 0; else noTestimonialsAvailableMessage" >                
+                    <ng-container *ngFor="let item of selectedResult.testimonials">
+                        <p>{{ item.testimonal_name }}</p>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        
+    
+    </ng-template>
+
+    <ng-template #requestDemoModelContent>
+        
+        <div class="modal-body" *ngIf="selectedResult">
+            <p>Select location and Date</p>
+        </div>
+    
+    </ng-template>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{selectedResult?.name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalClosed()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <ng-container *ngIf="demoRequestSelected; then requestDemoModelContent; else searchModalContent"></ng-container>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"  (click)="modalClosed()">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="demoRequestSelected = true">{{ demoRequestSelected ? 'Submit':'Request Demo' }} </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

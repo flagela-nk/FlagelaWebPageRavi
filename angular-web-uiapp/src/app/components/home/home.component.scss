@@ -1,0 +1,39 @@
+.card {
+  min-height: 200px;
+  display: flex;
+  flex-direction: row;
+
+  .card-subtitle {
+    font-size: x-large;
+  }
+
+  .card-img {
+    /* div */
+    color: #232323;
+    padding: 10px;
+    box-sizing: border-box;
+    font: inherit;
+    text-align: center;
+    flex-shrink: 0;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    img {
+      font: inherit;
+      text-align: center;
+      box-sizing: border-box;
+      vertical-align: middle;
+      border-style: none;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

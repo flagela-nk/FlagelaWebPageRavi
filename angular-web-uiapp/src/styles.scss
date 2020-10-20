@@ -1,0 +1,211 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+    font-family: inherit;
+}
+
+/* Override Bootstrap*/
+.container {
+    padding: 20px;
+}
+
+.inside-container {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    box-sizing: border-box;
+    font-family: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 20px 20px 40px 20px;
+    min-height: 250px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px;
+
+    .list-unstyled {
+        margin-left: 20px;
+    }
+
+    div.title {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        font-family: inherit;
+        box-sizing: border-box;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding-left: 0;
+        list-style: none;
+
+        h1 {
+            text-align: left;
+            display: inline-block;
+            margin-right: 0.5rem;
+
+            color: #212529;
+            font-family: inherit;
+            list-style: none;
+            box-sizing: border-box;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        h2 {
+            text-align: left;
+            display: inline-block;
+            margin-right: 0.5rem;
+
+            color: #212529;
+            font-family: inherit;
+            list-style: none;
+            box-sizing: border-box;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            font-size: x-large;
+            font-weight: normal;
+        }
+    }
+}
+
+form.flagela,
+.flagela-form {
+    padding-left: 20px;
+    font-family: inherit;
+
+    fieldset {
+        font-family: inherit;
+        margin-bottom: 0.4rem;
+        margin-top: 0.4rem;
+
+        label {
+            min-width: 200px;
+            font-family: inherit;
+            align-items: flex-start;
+        }
+        label.required::after {
+            content: "*";
+            color: red;
+            margin-left: 3px;
+        }
+        input,
+        select, textarea {
+            min-width: 250px;
+            border: 1px solid #ced4da;
+            border-radius: 0.1rem;
+            padding: 0.375rem 0.75rem;
+        }
+        input,
+        select{
+            height: calc(2.25rem + 2px);
+        } 
+        textarea {
+            height: calc(5.25rem + 2px);
+        }
+    }
+
+    button {
+        padding: 0.35em 1.2em;
+        border: 1px solid black;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.12em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        text-align: center;
+        transition: all 0.2s;
+        background-color: #ffffff;
+    }
+
+    button:hover {
+        color: #000000;
+        background-color: #efefef;
+    }
+}
+
+.flagela-menubar {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 3px;
+
+    li {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: inherit;
+        overflow: visible;
+        text-transform: none;
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+        color: #212529;
+        background-color: #f8f9fa;
+        border-color: #f8f9fa;
+        cursor: pointer;
+    }
+}
+
+.flagela-sidebar {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    font-family: inherit;
+    box-sizing: border-box;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    height: 100%;
+
+    li {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        font-family: inherit;
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        padding: 0.75rem 1.25rem;
+        background-color: #fff;
+        /*
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;*/
+    }
+
+    li.active {
+        background-color: gainsboro;
+    }
+}

@@ -1,0 +1,38 @@
+<ng-container>
+    <table class="table" style="width: 100%;">
+        <thead>
+            <tr>
+                <ng-container *ngFor="let column of tableMetadata.columns; index as i">
+
+                    <th>{{ column.label || (column.name | titlecase) }}</th>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="tableData">
+                <tr [ngClass]="{'table-primary': selectedRecords.includes(data[tableMetadata.primaryColumnName])}"
+                    *ngFor="let data of tableData" (click)="rowClicked(data[tableMetadata.primaryColumnName])">
+                    <ng-container *ngFor="let header of headers">
+                        <ng-container [ngSwitch]="getType(header)">
+                            <td *ngSwitchCase="'rating'">
+                                <span class="fa fa-star" [style.color]="data[header] >= 1 ? 'orange': ''"></span>
+                                <span class="fa fa-star" [style.color]="data[header] >= 2 ? 'orange': ''"></span>
+                                <span class="fa fa-star" [style.color]="data[header] >= 3 ? 'orange': ''"></span>
+                                <span class="fa fa-star" [style.color]="data[header] >= 4 ? 'orange': ''"></span>
+                                <span class="fa fa-star" [style.color]="data[header] >= 5 ? 'orange': ''"></span>
+                            </td>
+                            <td *ngSwitchCase="'reference'">
+                                <a>{{ data[header] ? data[header].name : '' }}</a>
+                            </td>
+                            <td *ngSwitchDefault>{{ data[header] }}</td>
+                        </ng-container>
+                    </ng-container>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+    <ng-container *ngIf="!tableData || tableData.length == 0">
+        <label>No data available</label>
+    </ng-container>
+
+</ng-container>

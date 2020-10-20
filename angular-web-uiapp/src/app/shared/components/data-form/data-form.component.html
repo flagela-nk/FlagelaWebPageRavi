@@ -1,0 +1,16 @@
+<form class="flagela" [formGroup]="dataForm" (ngSubmit)="dataFormSubmit()">
+    <fieldset>
+        <label>Id</label>
+        <input type="text" readonly  formControlName="_id" />
+    </fieldset>
+
+    <ng-container *ngIf="formMetadata">
+        <fieldset *ngFor="let column of formMetadata.columns">
+            <label>{{ (column.label || column.name) | titlecase }}</label>
+            <input type="text"  [formControlName]="column.name" />
+        </fieldset>
+    </ng-container>
+
+    {{ dataForm.value | json }}
+
+</form>

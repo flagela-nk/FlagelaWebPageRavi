@@ -1,0 +1,229 @@
+<div class="container" style="min-height: 1500px;" *ngIf="false">
+    <div class="card" style="border: 0px solid black;">
+        <div class="card-body">
+
+            <div class="container" style="max-width: 600px;">
+                <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+                    <h3 class="card-title">I am a </h3>
+                    <select [(ngModel)]="selectedRole" (change)="roleSelected($event.target.value)" style="width: 200px;"
+                        class="form-control ml-2"
+                        [disabled]="selectedRole && isUserAuthenticated"
+                        >
+                        <option value="HOSPITAL">Hospital</option>
+                        <option value="VENDOR">Vendor</option>
+                        <option value="PATIENT">Patient</option>
+                    </select>
+                    <a style="margin-top: 12px; margin-left: 20px; color: blue" (click)="logout()" *ngIf="selectedRole && isUserAuthenticated">Logout to change</a>
+    
+                </div>
+            </div>
+
+
+            <br />
+            <br />
+
+
+            <div *ngIf="selectedRole == 'HOSPITAL'" class="container" style="max-width: 600px;">
+                <h3 class="card-title">Transform hospital kitchen by </h3>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Connecting to Curated Vendors</h5>
+                        <p class="card-text">Which includes Connecting with vendors, requesting demo, auditing licenses,
+                            bidding etc.</p>
+                    </div>
+
+                    <div class="card-img ">
+                        <img class="img-icon" src="assets/images/landing-page/DoctorHealthyFood.png"
+                            alt="DoctorHealthyFood">
+                    </div>
+                    <!--
+
+                        <img src="../../../assets/images/landing-page/DoctorHealthyFood.png"
+                            style="height: 250px; width: 300px; margin-top: 20px; margin-right: 20px;" />
+                    -->
+
+                </div>
+
+                
+                <div class="card text-right">
+
+                    <div class="card-img ">
+                        <img class="img-icon" style="transform: scale(1); "
+                            src="assets/images/landing-page/VerifyDocument.jpg" alt="VerifyDocument">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">We Monitor Vendor licenses</h5>
+                        <p class="card-text" >Making sure food vendors have valid license is our responsibility.</p>
+                    </div>
+                </div>
+
+                
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Real time smart analysis</h5>
+                        <p class="card-text">
+                            It includes real time operational checklist, smart daily reporting analytics, Digital Audit
+                            System.</p>
+                    </div>
+
+                    <div class="card-img ">
+                        <img class="img-icon" style="transform: scale(1.5);"
+                            src="assets/images/landing-page/RealTimeAnalysis.png" alt="RealTimeAnalysis">
+                    </div>
+                </div>
+
+
+                <div class="card text-right">
+
+                    <div class="card-img ">
+                        <img class="img-icon" style="transform: scale(2.5); margin-top: 50px;"
+                            src="assets/images/landing-page/RawIngredients.jpg" alt="RawIngredients">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Digitally scanning RAW ingredients</h5>
+                        <p class="card-text" *ngIf="false">With supporting text below as a natural lead-in to additional
+                            content.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Know your patients food consumption patterns</h5>
+                        <p class="card-text">Active tracking and monitoring of patient food habits, preferences and
+                            timing.</p>
+                    </div>
+                    <div class="card-img ">
+                        <img class="img-icon" src="assets/images/landing-page/TimePatientGotFood.jpg"
+                            alt="TimePatientGotFood">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- for vendors -->
+            
+            <div *ngIf="selectedRole == 'VENDOR'" class="container" style="max-width: 600px;">
+                <h3 class="card-title">Grow your business by</h3>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Getting new hospitals as your clients</h5>
+                        <p *ngIf="false" class="card-text">Which includes customized operating check-list for kitchen staff.</p>
+                    </div>
+
+                    <div class="card-img ">
+                        <img style="transform: scale(2);" src="assets/images/landing-page/SignContract.jpg"
+                            alt="SignContract">
+                    </div>
+
+                </div>
+
+
+                <div class="card text-right">
+
+                    <div class="card-img ">
+                        <img style="transform: scale(1.5); margin-left: 50px;"
+                            src="assets/images/landing-page/ManageOrderOnline.png" alt="Digitally monitoring your projects">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Digitally monitoring your projects</h5>
+                        <p *ngIf="false" class="card-text" >Which includes daily customized operating check-list for kitchen staff.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Catering order to visitors/attendants</h5>
+                    </div>
+                    <div class="card-img ">
+                        <img class="img-icon" style="transform: scale(1); " src="assets/images/landing-page/Catering.jpg"
+                            alt="Catering">
+                    </div>
+                </div>
+
+                
+                <div class="card text-right">
+
+                    <div class="card-img ">
+                        <img class="img-icon" style="transform: scale(1); "
+                            src="assets/images/landing-page/CashFlow.jpg" alt="Cash flow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Solving cash flow issues with us</h5>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            
+            <div *ngIf="selectedRole == 'PATIENT'" class="container" style="max-width: 600px;">
+                <h3 class="card-title">Eat what you like</h3>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-subtitle">No more hassale in ordering food</h5>
+                        <p *ngIf="false" class="card-text">Which includes customized operating check-list for kitchen staff.</p>
+                    </div>
+
+                    <div class="card-img ">
+                        <img style="transform: scale(1.5);" src="assets/images/landing-page/EasyToOrderFood.jpg"
+                            alt="EasyToOrderFood">
+                    </div>
+
+                </div>
+
+
+                <div class="card text-right" *ngIf="false">
+
+                    <div class="card-img ">
+                        <img style="transform: scale(1); "
+                            src="assets/images/landing-page/FavoriteFood.png" alt="Eat what you like">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Eat what you like</h5>
+                        <p *ngIf="false" class="card-text" >Which includes daily customized operating check-list for kitchen staff.</p>
+                    </div>
+                </div>
+
+                
+                
+                <div class="card text-right">
+
+                    <div class="card-img ">
+                        <img class="img-icon" style="transform: scale(1); "
+                            src="assets/images/landing-page/FIA.png" alt="FIA">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Ask FIA (your virtual dietion) to guide you recover faster</h5>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-subtitle ">Rate your food</h5>
+                    </div>
+                    <div class="card-img ">
+                        <img class="img-icon" style="transform: scale(1); " src="assets/images/landing-page/Ratings.jpg"
+                            alt="Rate your food">
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div>

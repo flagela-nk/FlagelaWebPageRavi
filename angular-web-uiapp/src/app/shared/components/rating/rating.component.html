@@ -1,0 +1,13 @@
+<ng-container>
+    <ng-container *ngIf="value || value == 0; else noRatingValue; ">
+
+        <span class="fa fa-star" [style.color]="value >= 1 ? 'orange': ''"></span>
+        <span class="fa fa-star" [style.color]="value >= 2 ? 'orange': ''"></span>
+        <span class="fa fa-star" [style.color]="value >= 3 ? 'orange': ''"></span>
+        <span class="fa fa-star" [style.color]="value >= 4 ? 'orange': ''"></span>
+        <span class="fa fa-star" [style.color]="value >= 5 ? 'orange': ''"></span>
+    </ng-container>
+    <ng-template #noRatingValue>
+        <i>Not Available</i>
+    </ng-template>
+</ng-container>

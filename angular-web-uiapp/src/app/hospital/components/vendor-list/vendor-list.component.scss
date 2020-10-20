@@ -1,0 +1,31 @@
+.gridContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.gridContainerItem {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 10px;
+
+    width: 250px;
+    max-width: 400px;
+    min-width: 200px;
+    height: 250px;
+
+    box-sizing: border-box;
+    font-family: inherit;
+    display: block;
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+

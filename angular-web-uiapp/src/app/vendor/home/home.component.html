@@ -1,0 +1,25 @@
+
+
+<div style="display: flex; flex-direction: row;">
+    <div style="width: 250;">
+        <ul class="flagela-sidebar">
+            
+            <li routerLink="/vendor/dashboard" routerLinkActive="active">Dashboard</li>
+            <li routerLink="/vendor/search-hospitals" routerLinkActive="active">Search Hospitals</li>
+            <li routerLink="/vendor/manage-bids" routerLinkActive="active">Manage Bids</li>
+            <li routerLink="/vendor/staff" routerLinkActive="active">Staff</li>
+            <li routerLink="/vendor/profile" routerLinkActive="active">Profile</li>
+
+            <!--
+
+                <li class="list-group-item" *ngIf="false" routerLink="/vendor/applications">Applications</li>
+                <li class="list-group-item" *ngIf="false" routerLink="/vendor/quotes">Quotes</li>
+                <li class="list-group-item" *ngIf="false" routerLink="/vendor/orders">Orders</li>
+            -->
+        </ul>
+    </div>
+    <div style="min-width: 500px; margin-left: 10px; width:100%; margin-right: 10px; ">
+        <router-outlet></router-outlet>
+        
+    </div>
+</div>

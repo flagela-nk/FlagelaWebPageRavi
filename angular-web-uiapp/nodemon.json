@@ -1,0 +1,7 @@
+{
+    "watch": ["src/app/backend/**/*.ts", "src/app/model/**/*.ts"],
+    "ignore": "src/**/*.spec.ts",
+    "execMap": {
+      "ts": "ts-node"
+    }
+  }

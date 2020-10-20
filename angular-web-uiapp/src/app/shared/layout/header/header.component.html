@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark"  *ngIf="display">
+  <a class="navbar-brand" routerLink="/">Flagela</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+
+        <a class="nav-link" routerLink="/hospital" *ngIf="isUserAuthenticated && userRole == 'HOSPITAL'"
+          routerLinkActive="active">Dashboard</a>
+        <a class="nav-link" routerLink="/vendor" *ngIf="isUserAuthenticated && userRole == 'VENDOR'"
+          routerLinkActive="active">Dashboard</a>
+        <a class="nav-link" routerLink="/admin" *ngIf="isUserAuthenticated && userRole == 'ADMIN'"
+          routerLinkActive="active">Dashboard</a>
+          <a class="nav-link" routerLink="/patient" *ngIf="isUserAuthenticated && userRole == 'PATIENT'"
+          routerLinkActive="active">Dashboard</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/rest-api" *ngIf="isUserAuthenticated && userRole == 'ADMIN'"
+          routerLinkActive="active">RestAPI</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isUserAuthenticated">
+        <a class="nav-link" routerLink="/auth-profile" routerLinkActive="active">Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="!isUserAuthenticated">
+        <a class="nav-link" routerLink="/auth-register" routerLinkActive="active">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="!isUserAuthenticated">
+        <a class="nav-link" routerLink="/auth-login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="isUserAuthenticated">
+        <a class="nav-link" routerLink="/auth-logout" routerLinkActive="active">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/our-partners" routerLinkActive="active">Our Partners</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/help-faq" routerLinkActive="active">Help/FAQ</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

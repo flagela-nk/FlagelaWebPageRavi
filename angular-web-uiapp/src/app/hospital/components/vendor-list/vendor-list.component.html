@@ -1,0 +1,22 @@
+<div class="gridContainer">
+    <div class="gridContainerItem" *ngFor="let vendor of vendors">
+            <h4>{{vendor.name}}</h4>
+            <br />
+            <div>
+                <span class="fa fa-star" [style.color]="vendor.rating >= 1 ? 'orange': ''"></span>
+                <span class="fa fa-star" [style.color]="vendor.rating >= 2 ? 'orange': ''"></span>
+                <span class="fa fa-star" [style.color]="vendor.rating >= 3 ? 'orange': ''"></span>
+                <span class="fa fa-star" [style.color]="vendor.rating >= 4 ? 'orange': ''"></span>
+                <span class="fa fa-star" [style.color]="vendor.rating >= 5 ? 'orange': ''"></span>
+            </div>
+            <label>{{vendor.address}}</label>
+            <div>
+                <label>{{vendor.city}}</label>
+            </div>
+            <div>
+                <label>{{vendor.zip}}</label>
+            </div>
+
+    </div>
+</div>
+

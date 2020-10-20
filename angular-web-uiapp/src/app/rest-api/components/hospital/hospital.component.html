@@ -1,0 +1,24 @@
+
+<h3>Hospital</h3>
+<ng-template #hospitalFormTemplate>
+
+    <form class="flagela" [formGroup]="hospitalForm" (ngSubmit)="hospitalFormSubmit()">
+        <fieldset>
+            <label>Id</label>
+            <input type="text" readonly  formControlName="_id" />
+        </fieldset>
+
+        <fieldset>
+            <label>Name</label>
+            <input type="text" placeholder="Hospital Name"  formControlName="name" />
+        </fieldset>
+
+        {{ hospitalForm.value | json }}
+
+    </form>
+</ng-template>
+
+<app-hybrid-view [metadata]="hospitalMetadata" [data]="hospitalData"
+(menuItemClickEvent)="menuItemClicked($event)"  [formTemplate]="hospitalFormTemplate">
+
+</app-hybrid-view>

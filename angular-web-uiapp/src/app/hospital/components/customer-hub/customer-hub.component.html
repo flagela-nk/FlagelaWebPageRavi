@@ -1,0 +1,47 @@
+<ng-container>
+    <div class="container">
+        <div class="inside-container" >
+            <div class="title">
+                <h1>Ratings</h1>
+            </div>
+            <br/>
+            <table class="table table-striped">
+                <tbody>
+                    <ng-container  *ngFor="let item of overallRating">
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td><app-rating [value]="item.rating"></app-rating></td>
+                        </tr>
+                    </ng-container>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="inside-container">
+            <div class="title">
+                <h1>Testimonials</h1>
+            </div>
+            <br/>
+            <ng-container  *ngFor="let testimonial of testimonials">
+                <blockquote class="blockquote text-center" >
+                    <p class="mb-0">{{ testimonial.content }}</p>
+                    <footer class="blockquote-footer">{{ testimonial.name }}</footer>
+                  </blockquote>
+            </ng-container>
+            
+        </div>
+        <div class="inside-container">
+            <div class="title">
+                <h1>Complaints & Suggestions</h1>
+            </div>
+            <br/>
+            <ng-container  *ngFor="let item of feedback">
+                <blockquote class="blockquote">
+                    <p class="mb-0">{{item.content }}  - {{ item.kitchen_name }}</p>
+                    <footer class="blockquote-footer">{{ item.name || 'anonymous' }}</footer>
+                </blockquote>
+            </ng-container>
+            
+        </div>
+    </div>
+</ng-container>

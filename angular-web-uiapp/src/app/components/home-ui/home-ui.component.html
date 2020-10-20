@@ -1,0 +1,422 @@
+<div data-spy="scroll" data-target=".top-menu" data-offset="50">
+    <div id="preloader-container" *ngIf="false">
+        <div class="preloader">
+            <span class="bubble-01"></span>
+            <span class="bubble-02"></span>
+            <span class="bubble-03"></span>
+        </div>
+    </div>
+    <!--menu section starts here-->
+    <section #fixedTop class="top-menu fixed-top">
+        <div class="container">
+            <div class="top-header-flex-view">
+                <div class="logistics-logo"> <a href="#">FLAGELA</a>
+                </div>
+                <div id="loggedin_nav" style="display: none;" class="navbar-default navbar-custom">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link nav-link1" href="/hospital/dashboard">Dashboard</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navbar-default navbar-custom">
+                    <nav #navbar class="navbar navbar-expand-md navbar-light">
+
+
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-label="Toggle Navigation"> <span class="ti-menu"></span> </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link nav-link1" [routerLink]="'/search'">Search</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link nav-link1" [routerLink]="'/our-partners'">Our
+                                        Partners</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link nav-link1"
+                                        [routerLink]="'/help-faq'">Help/FAQ</a></li>
+                                <li class="nav-item">
+                                    <a id="auth_login" class="nav-link nav-link1" routerLink="/auth-login">Login</a>
+                                    <a id="auth_logout" style="display: none;" class="nav-link nav-link1">Logout</a>
+                                    <!--  href="/auth-logout"  -->
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div id="choose_box" class="choose-options-custom">
+                    <span class="ima">I am a</span>
+                    <label><input [checked]="selectedRole=='HOSPITAL'" type="radio" name="hosRadio" value="hospital"
+                            (change)="roleChanged('HOSPITAL')"> Hospital</label>
+                    <label><input [checked]="selectedRole=='VENDOR'" type="radio" name="hosRadio" value="vendor"
+                            (change)="roleChanged('VENDOR')"> Vendor</label>
+                    <label><input [checked]="selectedRole=='PATIENT'" type="radio" name="hosRadio" value="patients"
+                            (change)="roleChanged('PATIENT')"> Patients</label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--menu section starts here-->
+
+    <!--Banner Section-->
+    <div class="site-banner-image">
+        <div class="site-bg-effect" style="background-image: url(assets/static/images/banner2.png)">
+            <div class="container">
+                <div class="row">
+                    <div class="site-banner-title hospital option-choose-accordingly" style="display:block;">
+                        <h1>Transform your hospital kitchen by</h1>
+                        <div #typewriter1 id="typewriter"></div>
+                        <div class="site-button white-bg"><a href="#aboutus">Get Started</a></div>
+                    </div>
+                    <div class="site-banner-title vendor option-choose-accordingly">
+                        <h1>Grow your business by</h1>
+                        <div #typewriter2 id="typewriter1"></div>
+                        <div class="site-button white-bg"><a href="#aboutus2">Get Started</a></div>
+                    </div>
+                    <div class="site-banner-title patients option-choose-accordingly">
+                        <h1>Hospital food does not always have to be awful</h1>
+                        <div #typewriter3 id="typewriter2"></div>
+                        <div class="site-button white-bg"><a href="#aboutus3">Get Started</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Banner Section-->
+
+    <!--About us section starts here-->
+    <div id="aboutus" class="about-section hospital option-choose-accordingly"
+        [ngStyle]="{'display':selectedRole=='HOSPITAL' ? 'block': 'none' }">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="about-us-img">
+                        <figure class="image-1"><img src="assets/static/images/hospital1.png" class="img-fluid" alt="">
+                        </figure>
+                        <figure class="image-2"><img src="assets/static/images/hospital2.png" class="img-fluid" alt="">
+                        </figure>
+                        <figure class="image-3">
+                            <img src="assets/static/images/hospital3.png" class="img-fluid" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-xl-6 center-column-custom">
+                    <div class="section-header">
+                        <h5>For Hospital</h5>
+                    </div>
+                    <div class="about-content">
+                        <p>Transform your hospital kitchen by</p>
+                        <ul>
+                            <li>Connecting to a pool of curated vendors</li>
+                            <li>Vendors with verified food licenses like HACCP</li>
+                            <li>Digitally scanning quality of raw ingredients used in today's cooking</li>
+                            <li>Know the exact time when your patient received food</li>
+                            <li>Real-time smart analytics</li>
+                        </ul>
+                    </div>
+                    <div class="site-button site-color-button"><a href="/search">Ask for a demo</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--About us section ends here-->
+    <!--About us section starts here-->
+    <div id="aboutus2" class="about-section  vendor option-choose-accordingly"
+        [ngStyle]="{'display':selectedRole=='VENDOR' ? 'block': 'none'}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="about-us-img">
+                        <figure class="image-1"><img src="assets/static/images/vendor1.png" class="img-fluid" alt="">
+                        </figure>
+                        <figure class="image-2"><img src="assets/static/images/vendor2.png" class="img-fluid" alt="">
+                        </figure>
+                        <figure class="image-3">
+
+                            <img src="assets/static/images/vendor3.png" class="img-fluid" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-xl-6 center-column-custom">
+                    <div class="section-header">
+                        <h5>For Vendor</h5>
+                    </div>
+                    <div class="about-content">
+                        <p>Grow your business by</p>
+                        <ul>
+                            <li>Getting new hospitals as your client</li>
+                            <li>Optimizing your manpower and inventory</li>
+                            <li>Digitally monitoring your projects</li>
+                            <li>Catering new orders from visitors/attendants</li>
+                            <li>Solving your cash-flow</li>
+                        </ul>
+                    </div>
+                    <div class="site-button site-color-button"><a href="/search">Ask for a demo</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--About us section ends here-->
+    <!--About us section starts here-->
+    <div id="aboutus3" class="about-section patients option-choose-accordingly"
+        [ngStyle]="{'display':selectedRole=='PATIENT' ? 'block': 'none'}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="about-us-img">
+                        <figure class="image-1"><img src="assets/static/images/patient1.png" class="img-fluid" alt="">
+                        </figure>
+                        <figure class="image-2"><img src="assets/static/images/patient2.png" class="img-fluid" alt="">
+                        </figure>
+                        <figure class="image-3">
+                            <img src="assets/static/images/patient3.png" class="img-fluid" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-xl-6 center-column-custom">
+                    <div class="section-header">
+                        <h5>For Patients</h5>
+                    </div>
+                    <div class="about-content">
+                        <p>Hospital food does not always have to be awful</p>
+                        <ul>
+                            <li>No more hassle of ordering food</li>
+                            <li>Eat what you like</li>
+                            <li>Let FIA guide you recover better</li>
+                            <li>Rate the food</li>
+                        </ul>
+                    </div>
+                    <div class="site-button site-color-button mt-5"><a href="/search">Ask for a demo</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer section starts here -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="footer-content">
+                        <div class="footer-heading mb-4">
+                            <h4>About Us</h4>
+                        </div>
+                        <div class="contact-footer">
+                            <p>We are India's #1 a smart platform to connect hospitals & curated food vendors. We help
+                                hospitals to connect, select and on-board the vendor. Once the vendor is onboarded our
+                                AI-based system helps vendors to match with the standard in kitchen practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="footer-menu">
+                        <div class="footer-heading mb-4">
+                            <h4>Contact Us</h4>
+                        </div>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt addcustom-icon"></i><a href="#"
+                                    class="addcustom-details">4&5, First Floor, Inder Sheela Apartment, Opp Mira Society
+                                    Off, Shankar Sheth Rd, Guru Nanak Nagar, Pune, Maharashtra 411037 </a></li>
+                            <li><a href="tel:+91-8530820530"><i
+                                        class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;+91-8530820530 </a>
+                            </li>
+                            <li><a href="mailto:demo@flagela.com"><i
+                                        class="fas fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;&nbsp;demo@flagela.com </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="footer-menu">
+                        <div class="footer-heading mb-4">
+                            <h4>Quick Link</h4>
+                        </div>
+                        <ul>
+                            <li><a href="/search">Search</a></li>
+                            <li><a href="#">Earn With Us</a></li>
+                            <li><a href="/our-partners">Our Client</a></li>
+                            <li><a href="/help-faq">Help / FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="footer-menu">
+                        <div class="footer-heading mb-4">
+                            <h4>Social Link</h4>
+                        </div>
+                        <ul class="social Details">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i>&nbsp;&nbsp; Facebook</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i>&nbsp; Twitter</a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i>&nbsp;&nbsp; Pintrest</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i>&nbsp;&nbsp; Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section ends here -->
+
+    <!-- copyright section starts here -->
+    <section class="copyright-bg">
+        <div class="copyright-section">
+            <p>Copyright © 2020 <span>Flagela</span> - All Rights Reserved</p>
+        </div>
+    </section>
+    <!-- copyright section ends here -->
+
+
+
+    <a id="back-to-top" style="display: none;"><i class="fas fa-sort-up"></i></a>
+
+    <!--     
+    <script src="assets/static/js/jquery-3.1.1.min.js"></script>
+ Include all compiled plugins (below), or include individual files as needed 
+    <script src="assets/static/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/static/js/scrolling-nav.js"></script>
+    <script src="assets/static/js/typingcore.js"></script>
+    plugins js
+    <script src="assets/static/js/script.js" type="text/javascript"></script> -->
+
+    <script>
+        /*
+        $(window).scroll(function () {
+            if ($(".navbar").offset().top > 50) {
+                $(".fixed-top").addClass("nav-scroll");
+            } else {
+                $(".fixed-top").removeClass("nav-scroll");
+            }
+        });
+        */
+
+    </script>
+    <script>
+        /*
+        function ui_login_refresh() {
+            try {
+
+                var userInfo = window.localStorage.getItem('user');
+                // debugger;
+                if (userInfo) {
+
+                    $('#loggedin_nav').css("display", 'block');
+                    $('#choose_box').css("display", 'none');
+                    $('#auth_login').css("display", 'none');
+                    $('#auth_logout').css("display", 'block');
+                } else {
+                    $('#loggedin_nav').css("display", 'none');
+                    $('#choose_box').css("display", 'block');
+                    $('#auth_login').css("display", 'block');
+                    $('#auth_logout').css("display", 'none');
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+*/
+        $(document).ready(function () {
+            //ui_login_refresh();
+
+            $('#auth_logout').click(function () {
+                window.localStorage.removeItem('user');
+                // ui_login_refresh();
+            });
+
+            $('input[type="radio"]').click(function () {
+                var inputValue = $(this).attr("value");
+                var targetBox = $("." + inputValue);
+                $(".option-choose-accordingly").not(targetBox).hide();
+                $(targetBox).show();
+
+                console.log('Radio-button-onchange', inputValue);
+                if (inputValue == 'hospital') {
+                    window.localStorage.setItem('ROLE', 'HOSPITAL');
+                } else if (inputValue == 'vendor') {
+                    window.localStorage.setItem('ROLE', 'VENDOR');
+                } else if (inputValue == 'patients') {
+                    window.localStorage.setItem('ROLE', 'PATIENT');
+                }
+            });
+        });
+    </script>
+    <script type='text/javascript'>
+        const typewriter = new Typewriter('#typewriter', {
+            loop: true,
+        });
+
+        typewriter.typeString('Connecting to a pool of curated vendors')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Vendors with verified food licenses like HACCP')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Real-time smart analytics')
+            .pauseFor(2500)
+            .deleteChars(7)
+            .start();
+    </script>
+    <script type='text/javascript'>
+        const typewriter1 = new Typewriter('#typewriter1', {
+            loop: true,
+        });
+
+        typewriter1.typeString('Optimizing your manpower and inventory')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Digitally monitoring your projects')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Solving your cash-flow')
+            .pauseFor(2500)
+            .deleteChars(7)
+            .start();
+    </script>
+    <script type='text/javascript'>
+        const typewriter2 = new Typewriter('#typewriter2', {
+            loop: true,
+        });
+
+        typewriter2.typeString('Eat what you like')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Let FIA guide you recover better')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Rate the food')
+            .pauseFor(2500)
+            .deleteChars(7)
+            .start();
+    </script>
+    <script>
+        // smooth scrolling script
+        $('a[href*="#"]')
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function (event) {
+                if (
+                    location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname
+                ) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 40
+                        }, 1000, function () {
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) {
+                                return false;
+                            } else {
+                                // $target.attr('tabindex', '-1');
+                                $target.focus();
+                            }
+                        });
+                    }
+                }
+            });
+    </script>
+</div>

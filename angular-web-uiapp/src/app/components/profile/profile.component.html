@@ -1,0 +1,39 @@
+<div style="margin: 15px;">
+    <div style="display: flex; flex-direction: row; align-items: flex-end;">
+        <h4>Profile </h4><h5 style="margin-left: 20px;">( {{ role }} )</h5>
+    </div>
+
+    <form class="flagela"  [formGroup]="profileFormGroup">
+        <input type="hidden" formControlName="id" />
+        
+        <fieldset>
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" />
+        </fieldset>
+
+        <fieldset>
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" />
+        </fieldset>
+
+        <ng-container *ngIf="role == 'HOSPITAL'">
+        </ng-container>
+
+        <ng-container *ngIf="role == 'VENDOR'">            
+        </ng-container>
+
+        <br/>
+        <button (click)="updateProfile()">Update</button>
+
+        <!--
+
+            <br/><br/>
+            {{ user | json}}
+            <br/><br/>
+            <div>
+                {{ profileFormGroup.value | json}}
+            </div>
+        -->
+
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<app-menu [menuItems]="menuItems" (menuItemClickEvent)="menuItemClicked($event)"></app-menu>
+
+
+<ng-container *ngIf=" mode == 'VIEW' ">
+    <app-data-table [tableMetadata]="metadata" [tableData]="data" (rowClickEvent)="dataSelected($event)">
+
+    </app-data-table>
+
+</ng-container>
+
+
+<ng-container *ngIf="mode == 'FORM' ">
+
+    <ng-container *ngIf="formTemplate; else elseBlock" [ngTemplateOutlet]="formTemplate"></ng-container>
+
+    <ng-template #elseBlock>
+        <app-data-form [formMetadata]="metadata" [formDataId]="currentRecord"  >
+            
+        </app-data-form>
+    </ng-template>
+    
+
+</ng-container>

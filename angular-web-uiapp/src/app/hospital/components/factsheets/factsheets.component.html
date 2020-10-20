@@ -1,0 +1,136 @@
+<!--
+<app-menu [menuItems]="menuItems" (menuItemClickEvent)="menuItemClicked($event)" ></app-menu>
+
+
+<app-data-table 
+    [tableMetadata]="factsheetListTableMetadata"
+    [tableData]="factsheetListTableData"
+    (rowClickEvent)="dataSelected($event)" >
+
+</app-data-table>
+-->
+
+<ng-template #factsheetFormTemplate>
+
+    <div class="card">
+
+    </div>
+    <form class="flagela" [formGroup]="factsheetForm" (ngSubmit)="factsheetFormSubmit()">
+
+        <fieldset>
+            <label for="title">Factsheet Name</label>
+            <input type="text" name="name" class="ml-2" formControlName="name">
+        </fieldset>
+
+        <fieldset>
+            <label for="hospital_id">Hospital Id</label>
+            <!-- <input type="text" name="hospital_id" class="ml-2" formControlName="hospital_id"> 
+             (change)="this.factsheetForm.patchValue( { hospital_id : $event.target.value} )"
+            -->
+            <select  formControlName="hospital_id">
+                <option></option>
+                <option *ngFor="let hospital of hospitalList;  index as i" [value]="hospital.id">
+                    {{ hospital.name }}
+                </option>
+            </select>
+        </fieldset>
+
+
+        <!--
+            <fieldset formGroupName="data">
+
+                <fieldset>
+                    <label for="hospitalName">Hospital Name</label>
+                    <input type="text" name="hospitalName" class="ml-2" formControlName="hospitalName">
+                </fieldset>
+                
+                <fieldset>
+                    <label for="hospitalAddress">Hospital Address</label>
+                    <input type="text" name="hospitalAddress" class="ml-2" formControlName="hospitalAddress">
+                </fieldset>
+            -->
+                
+            <fieldset>
+                <label for="contact_person_name">Contact Person</label>
+                <input type="text" name="contact_person_name" class="ml-2" formControlName="contact_person_name">
+            </fieldset>
+
+            <fieldset>
+                <label for="contact_person_phone">Contact Phone</label>
+                <input type="text" name="contact_person_phone" class="ml-2" formControlName="contact_person_phone">
+            </fieldset>
+
+            <fieldset>
+                <label for="contact_person_email">Contact Email</label>
+                <input type="text" name="contact_person_email" class="ml-2" formControlName="contact_person_email">
+            </fieldset>
+
+            <!-- Hospital Basic details-->
+            <fieldset>
+                <label for="current_number_of_patients">Current Number of Patients</label>
+                <input type="number" name="current_number_of_patients" class="ml-2" formControlName="current_number_of_patients">
+            </fieldset>
+
+            <fieldset>
+                <label for="estimated_number_of_patients_1m">Estimated Number of Patients (1 month)</label>
+                <input type="number" name="estimated_number_of_patients_1m" class="ml-2" formControlName="estimated_number_of_patients_1m">
+            </fieldset>
+
+            <fieldset>
+                <label for="estimated_number_of_patients_3m">Estimated Number of Patients (3 months)</label>
+                <input type="number" name="estimated_number_of_patients_3m" class="ml-2" formControlName="estimated_number_of_patients_3m">
+            </fieldset>
+
+            
+            <fieldset>
+                <label for="menu_attached">Menu Attached</label>
+                <input type="checkbox" name="menu_attached" class="ml-2" formControlName="menu_attached">
+            </fieldset>
+
+            <fieldset>
+                <label for="menu_assistance_provided_by">Menu Assistance Provided By</label>
+                <input type="text" name="menu_assistance_provided_by" class="ml-2" formControlName="menu_assistance_provided_by">
+            </fieldset>
+
+            <fieldset>
+                <label for="leave_policy">Leave Policy</label>
+                <input type="text" name="leave_policy" class="ml-2" formControlName="leave_policy">
+            </fieldset>
+
+            <fieldset>
+                <label for="tentative_start_date">Start Date (tentative)</label>
+                <input type="date" name="tentative_start_date" class="ml-2" formControlName="tentative_start_date">
+            </fieldset>
+
+
+            <fieldset>
+                <label for="number_of_site_services">Number of Site Services</label>
+                <input type="number" name="number_of_site_services" class="ml-2" formControlName="number_of_site_services">
+            </fieldset>
+
+            <fieldset>
+                <label for="number_of_service_boys_per_site">Number of Service boys per site</label>
+                <input type="number" name="number_of_service_boys_per_site" class="ml-2" formControlName="number_of_service_boys_per_site">
+            </fieldset>
+
+            <fieldset>
+                <label for="timings_of_food_service">Timing of Food service</label>
+                <input type="text" name="timings_of_food_service" class="ml-2" formControlName="timings_of_food_service">
+            </fieldset>
+
+
+        <br/>
+        <br/>
+        {{ factsheetForm.value | json }}
+
+    </form>
+</ng-template>
+
+<i>****Under construction****</i>
+<br/>
+<br/>
+
+<app-hybrid-view [metadata]="factsheetListMetadata" [data]="factsheetListData"
+    (menuItemClickEvent)="menuItemClicked($event)" [formTemplate]="factsheetFormTemplate">
+
+</app-hybrid-view>

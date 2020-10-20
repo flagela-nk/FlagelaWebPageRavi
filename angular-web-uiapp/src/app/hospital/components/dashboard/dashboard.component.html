@@ -1,0 +1,141 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h3>Dashboard</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Checklist</h3>
+                    <!-- <h2>(followed at all kitchens)</h2>-->
+                    <br/>
+                    <ul class="list-unstyled">
+                        <li *ngFor="let item of checklistItems">
+                            {{ item.name }}
+                            <ng-container *ngIf="item.subItems">
+                                <ul>
+                                    <li *ngFor="let subItem of item.subItems">{{ subItem.name }} </li>
+                                </ul>
+                            </ng-container>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Today's Menu</h3>
+                    <br/>
+                    <ul class="list-unstyled">
+                        <li *ngFor="let item of todaysMenu">{{ item.item }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-body">
+                        <h3>Staff Health</h3>
+                        <br/>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let item of staffHealth">
+                                {{ item.first_name }} {{ item.last_name }} 
+                                <ul>
+                                    <li>{{ item.reason }}</li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    Card 4
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-container *ngIf="false">
+
+    <div class="container">
+        <!-- Hospital Dashboard-->
+        <br />
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Checklist</h1>
+                <h2>(followed at all kitchens)</h2>
+            </div>
+
+            <ul class="list-unstyled">
+                <li *ngFor="let item of checklistItems">
+                    {{ item.name }}
+                    <ng-container *ngIf="item.subItems">
+                        <ul>
+                            <li *ngFor="let subItem of item.subItems">{{ subItem.name }} </li>
+                        </ul>
+                    </ng-container>
+                </li>
+                <!--
+
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Consectetur adipiscing elit</li>
+                    <li>Integer molestie lorem at massa</li>
+                    <li>Facilisis in pretium nisl aliquet</li>
+                    <li>Nulla volutpat aliquam velit
+                        <ul>
+                        <li>Phasellus iaculis neque</li>
+                        <li>Purus sodales ultricies</li>
+                        <li>Vestibulum laoreet porttitor sem</li>
+                        <li>Ac tristique libero volutpat at</li>
+                    </ul>
+                </li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+            -->
+            </ul>
+        </div>
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Today's Menu</h1>
+                <h2>(from all vendors)</h2>
+            </div>
+            <ul class="list-unstyled">
+                <li *ngFor="let item of todaysMenu">{{ item.item }}</li>
+            </ul>
+        </div>
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Staff Health Information</h1>
+                <h2>(from all kitchens)</h2>
+            </div>
+
+            <ul>
+                <li *ngFor="let item of staffHealth">
+                    {{ item.first_name }} {{ item.last_name }} 
+                    <ul>
+                        <li>{{ item.reason }}</li>
+                    </ul>
+                    
+                </li>
+            </ul>
+            
+        </div>
+
+
+    </div>
+
+</ng-container>

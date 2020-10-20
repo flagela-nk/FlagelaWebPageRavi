@@ -1,0 +1,26 @@
+
+
+
+<div style="display: flex; flex-direction: row;">
+    <!--
+    <app-sidebar>
+
+    </app-sidebar>
+-->
+    <div style="width: 250px;">
+        <ul class="flagela-sidebar" >
+            <li routerLink="/hospital/dashboard" routerLinkActive="active" >Dashboard</li>
+            <li routerLink="/hospital/customer-hub" routerLinkActive="active" >Customer Hub</li>
+            <li routerLink="/hospital/reports" routerLinkActive="active" >Reports</li>
+            <li routerLink="/hospital/manage-bids" routerLinkActive="active" >Manage Bids</li>
+            <li routerLink="/hospital/factsheets" routerLinkActive="active" >Fact sheets</li>
+        </ul>
+    </div>
+
+    <div class="main-content" >
+        
+        <router-outlet></router-outlet>
+
+    </div>
+</div>
+

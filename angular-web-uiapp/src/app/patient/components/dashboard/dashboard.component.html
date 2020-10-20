@@ -1,0 +1,49 @@
+<ng-container>
+
+    <div class="container">
+        <!-- Patient Dashboard-->
+        <br />
+        
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Available Menu</h1>
+                <h2>(from all vendors)</h2>
+            </div>
+
+            <ul class="list-unstyled">
+                <li *ngFor="let item of availableMenu">{{ item.name }}</li>
+            </ul>
+            <ul class="list-unstyled">
+                <li>
+                    <button class="btn btn-primary">Place New Order</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="inside-container">
+
+            <div class="title">
+                <h1>Ratings</h1>
+            </div>
+
+            <ul *ngIf="false" class="list-inline">
+                <li class="list-inline-item">
+                    <h2 class="display-4">Available Menu</h2>
+                </li>
+                <li class="list-inline-item">
+                    <h4 class="display-4" style="font-size: x-large; font-weight: normal;">
+                        (from all vendors)
+                    </h4>
+                </li>
+            </ul>
+            <ul class="list-unstyled">
+                <li *ngFor="let item of availableMenu">{{ item.name }}</li>
+            </ul>
+        </div>
+        
+
+
+    </div>
+
+</ng-container>

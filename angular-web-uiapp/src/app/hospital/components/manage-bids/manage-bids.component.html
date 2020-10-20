@@ -1,0 +1,71 @@
+<ng-container>
+    <i>****Under construction****</i>
+    <br />
+    <br />
+
+    <ng-template #hospitalBidFormTemplate>
+        
+        <form class="flagela" [formGroup]="bidForm" (ngSubmit)="bidFormSubmit()">
+            <fieldset>
+                <label for="id">Id</label>
+                <input type="text" name="id" disabled formControlName="id">
+            </fieldset>
+
+            <fieldset>
+                <label>Opened Date</label>
+                <input type="text" disabled formControlName="opened_date">
+            </fieldset>
+
+            <fieldset>
+                <label class="required" for="title">Title</label>
+                <input type="text" name="title" formControlName="title" required>
+            </fieldset>
+
+            <!--        
+    <fieldset>
+        <label class="required" for="title">Hospital</label>
+        <select formControlName="hospital_id" required>
+            <option *ngFor="let hospital of hospitals; let i=index" [value]="hospital.id">
+                {{ hospital.name}}
+            </option>
+        </select>
+    </fieldset>
+    -->
+
+            <fieldset>
+                <label class="required" for="title">Factsheet</label>
+                <select formControlName="factsheet_id" required (change)="setHospitalId()">
+                    <option *ngFor="let item of factsheets; let i=index" [value]="item.id">
+                        {{ item.name}}
+                    </option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label class="required" for="details">Details</label>
+                <textarea type="text" name="details" formControlName="details" required>
+            </textarea>
+            </fieldset>
+
+            <fieldset>
+                <label>Status</label>
+                <input type="text" disabled formControlName="status">
+            </fieldset>
+
+
+            <button>Submit</button>
+            <br />
+            <br />
+            <br />
+
+            {{ bidForm.value | json}}
+        </form>
+    </ng-template>
+
+    <app-hybrid-view [metadata]="hospitalBidMetadata" [data]="hospitalBidData"
+        (menuItemClickEvent)="menuItemClicked($event)" [formTemplate]="hospitalBidFormTemplate">
+
+    </app-hybrid-view>
+
+
+</ng-container>

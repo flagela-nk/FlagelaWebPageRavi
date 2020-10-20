@@ -1,0 +1,87 @@
+<div>
+    <h4>Vendor Profile</h4>
+
+    <form  class="flagela">
+        <fieldset>
+            <label>Vendors</label>
+            <select  >
+                <option *ngFor="let item of associatedVendors" [value]="item.id" >{{ item.name}}</option>
+            </select>
+
+        </fieldset>
+    </form>
+    
+    <br/><br/>
+
+    <form class="flagela"  [formGroup]="profileFormGroup">
+        <input type="hidden" formControlName="id" />
+        <fieldset>
+            <label>Business Name</label>
+            <input type="text" formControlName="name" />
+        </fieldset>
+        <fieldset>
+            <label>Address Line 1</label>
+            <input type="text" formControlName="address_line1" />
+        </fieldset>
+        <fieldset>
+            <label>Address Line 2</label>
+            <input type="text" formControlName="address_line2" />
+        </fieldset>
+        <fieldset>
+            <label>Address Line 3</label>
+            <input type="text" formControlName="address_line3" />
+        </fieldset>
+        <fieldset>
+            <label>City</label>
+            <input type="text" formControlName="city" />
+        </fieldset>
+        <fieldset>
+            <label>State</label>
+            <input type="text" formControlName="state" />
+        </fieldset>
+        <fieldset>
+            <label>Country</label>
+            <input type="text" formControlName="country" />
+        </fieldset>
+        <fieldset>
+            <label>Zipcode</label>
+            <input type="text" formControlName="zipcode" />
+        </fieldset>
+
+        <br/>
+        <br/>
+        <fieldset>
+            <label>Current Capacity</label>
+            <input type="number" formControlName="current_capacity" />
+        </fieldset>
+        <fieldset>
+            <label>Available Capacity</label>
+            <input type="number" formControlName="available_capacity" />
+        </fieldset>
+        <fieldset>
+            <label>Cuisines</label>
+            <select style="height: 10rem;" multiple  formControlName="cuisines">
+                <option value="north_indian">North Indian</option>
+                <option value="south_indian">South Indian</option>
+                <option value="italian">Italian</option>
+                <option value="chinese">Chinese</option>
+            </select>
+
+        </fieldset>
+        
+
+        <br/>
+        <button (click)="updateProfile()">Update</button>
+
+        <br/><br/>
+        <!--
+
+            {{ user | json}}
+        -->
+        <br/><br/>
+                <div>
+                    {{ profileFormGroup.value | json}}
+                </div>
+
+    </form>
+</div>
